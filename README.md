@@ -72,6 +72,10 @@ Al ejecutar la aplicación está disponible en [http://localhost:8080/api/v1/swa
 
 ## Ejecutar mediante Docker
 
+Se ha creado una imagen de la aplicación y está disponible en dockerhub.
+
+Ejecutar en la terminal:
+
 ```
 docker run -p 8080:8080 davicotico/api-rest-blog:v1.0.0
 ```
