@@ -1,0 +1,16 @@
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+**/target/
+**/bin/
+**/.settings/
+**/.classpath
+**/.project
+**/.mvn/wrapper/maven-wrapper.jar
+**/node_modules/
+**/logs/
+*.log
+*.tmp
+*.temp

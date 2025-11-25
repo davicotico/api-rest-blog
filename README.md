@@ -9,8 +9,11 @@ API REST para una aplicación de gestión de blogs. Esta aplicación permite cre
 * Base de datos: H2 Database
 * Documentación: Open API 3
 
-Spring Boot 4 es la más reciente versión de Spring Boot.
-He utilizado Java 21 ya que junto a Java 25 es la versión recomendada para Spring Boot 4.
+Spring Boot 4:  es la más reciente versión de Spring Boot.
+
+**Java 21:** He utilizado Java 21 ya que junto a Java 25 es la versión recomendada para Spring Boot 4.
+* DTOS usando record en lugar de clases.
+
 La base de datos H2 Database es un gestor de base de datos en memoria.
 
 ## Documentación de la API
@@ -44,16 +47,16 @@ Ejecutar la aplicación
 
 ### Autor
 
-[x] Crear autor
-[x] Listar autores
+- [x] Crear autor
+- [x] Listar autores
 
 ### Blog
 
-[x] Crear blogs
-[x] Listar blogs
-[x] Añadir comentarios a un blog
-[x] Actualizar blog ID
-[x] Consultar blog por ID
-[x] Lista de comentarios por blog (ID del blog)
+- [x] Crear blogs
+- [x] Listar blogs
+- [x] Añadir comentarios a un blog
+- [x] Actualizar blog ID
+- [x] Consultar blog por ID
+- [x] Lista de comentarios por blog (ID del blog)
 
 

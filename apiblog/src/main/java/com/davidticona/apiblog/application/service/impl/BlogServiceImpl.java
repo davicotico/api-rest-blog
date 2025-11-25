@@ -131,6 +131,7 @@ public class BlogServiceImpl implements BlogService {
     public BlogDto consultar(Integer id) {
         Blog blog = repository.findById(id)
                 .orElseThrow(() -> new NoEncontradoException("Blog no encontrado"));
+
         AutorDto autorDto = new AutorDto(
                 blog.getAutor().getId(),
                 blog.getAutor().getPais().getCodigo(),
@@ -141,13 +142,17 @@ public class BlogServiceImpl implements BlogService {
                 blog.getAutor().getCorreoElectronico());
         TemaDto temaDto = new TemaDto(blog.getTema().getId(), blog.getTema().getTema());
         List<ComentarioDto> listaComentariosDto = obtenerListaComentarioDto(blog.getComentarios());
-        IntSummaryStatistics estadisticas = listaComentariosDto.stream()
-                .mapToInt(ComentarioDto::puntuacion)
-                .summaryStatistics();
-        ResumenPuntuacionDto resumenPuntuacion = new ResumenPuntuacionDto(
-                estadisticas.getMax(),
-                estadisticas.getMin(),
-                estadisticas.getAverage());
+        IntSummaryStatistics estadisticas;
+        ResumenPuntuacionDto resumenPuntuacion = new ResumenPuntuacionDto(0, 0, 0);
+        if (!listaComentariosDto.isEmpty()) {
+            estadisticas = listaComentariosDto.stream()
+                    .mapToInt(ComentarioDto::puntuacion)
+                    .summaryStatistics();
+            resumenPuntuacion = new ResumenPuntuacionDto(
+                    estadisticas.getMax(),
+                    estadisticas.getMin(),
+                    estadisticas.getAverage());
+        }
         return new BlogDto(
                 blog.getId(),
                 autorDto,
@@ -156,7 +161,9 @@ public class BlogServiceImpl implements BlogService {
                 blog.getContenido(),
                 blog.getPeriodicidad(),
                 blog.getPermiteComentarios(),
-                resumenPuntuacion);
+                resumenPuntuacion,
+                listaComentariosDto
+        );
     }
 
     @Override
