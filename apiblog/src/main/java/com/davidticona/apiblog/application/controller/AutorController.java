@@ -27,7 +27,7 @@ public class AutorController {
     }
 
     @PostMapping
-    @Operation(summary = "Registra un nuevo autor", description = "Permite registrar un nuevo autor de blog")
+    @Operation(summary = "Crea un nuevo autor", description = "Permite registrar un nuevo autor de blog")
     public ResponseEntity<?> crearAutor(@RequestBody AutorCreateDto dto) {
         System.out.println(dto);
         Integer idAAutor = service.crear(dto);

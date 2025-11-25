@@ -32,7 +32,7 @@ public class BlogController {
     }
     
     @GetMapping
-    @Operation(summary = "Lista Blogs", description = "Obtiene la lista de todos los blogs")
+    @Operation(summary = "Lista de Blogs", description = "Obtiene la lista de todos los blogs")
     public ResponseEntity<?> listar() {
         return ResponseEntity.ok(service.listar());
     }
@@ -64,7 +64,7 @@ public class BlogController {
     }
 
     @PutMapping("{id}")
-    @Operation(summary = "Actualiza blog", description = "Permite actualizar un registro de blog")
+    @Operation(summary = "Actualiza un blog", description = "Permite actualizar el registro de un blog")
     public ResponseEntity<?> actualizar(
             @PathVariable("id") Integer idBlog,
             @RequestBody BlogUpdateDto dto) {
@@ -73,19 +73,19 @@ public class BlogController {
     }
 
     @GetMapping("{id}")
-    @Operation(summary = "Consultar blog", description = "Permite consultar un blog específico por identificador")
+    @Operation(summary = "Consultar blog por ID", description = "Permite consultar un blog específico por su identificador")
     public ResponseEntity<?> obtenerBlogPorId(@PathVariable("id") Integer idBlog) {
         return ResponseEntity.ok(service.consultar(idBlog));
     }
 
     @GetMapping("{id}/comentarios")
-    @Operation(summary = "Obtiene comentarios de un blog", description = "Obtiene los comentarios de un blog específico")
+    @Operation(summary = "Obtiene comentarios de un blog", description = "Obtiene todos los comentarios de un blog específico")
     public ResponseEntity<?> obtenerComentariosDeBlog(@PathVariable("id") Integer idBlog) {
         return ResponseEntity.ok(service.consultarComentariosDeBlog(idBlog));
     }
 
     @GetMapping("{id}/historico")
-    @Operation(summary = "Obtiene histórico de un blog", description = "Obtiene el histórico de cambios de un blog específico")
+    @Operation(summary = "Obtiene histórico de cambios de un blog", description = "Obtiene todo el histórico de cambios de un blog específico")
     public ResponseEntity<?> obtenerHistoricoDeBlog(@PathVariable("id") Integer idBlog) {
         return ResponseEntity.ok(service.consultarHistorialDeBlog(idBlog));
     }
